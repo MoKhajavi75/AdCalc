@@ -1,6 +1,6 @@
 # AdCalc
 <div align="center">
-![alt tag](https://raw.githubusercontent.com/MohamadKh75/AdCalc/master/__others/AdCalc.png)
+<img align="middle" src="https://raw.githubusercontent.com/MohamadKh75/AdCalc/master/__others/AdCalc.png" alt="AdCalc">
 
 Probably The Most Advanced Calculator in the World in React-Native! :grin:
 </div>
