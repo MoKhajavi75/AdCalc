@@ -1,0 +1,13 @@
+1. Calculator
+2. login
+3. register
+3. splash screen
+4. Higher Order Components, drawer samte rast,   | 	Esm 	| charkh dande vase setting |
+5. about
+6. setting
+7. exit
+8. swipe left or right to clear one num
+9. vasl shodan b db va zakhire 5 javabe akhar
+10. search too db vase javaba
+11. Font Customizations (about farsi, fonte ir yekan)
+12. profile
