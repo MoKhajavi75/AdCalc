@@ -1,7 +1,9 @@
 # AdCalc
 <div align="center">
 <img align="middle" src="https://raw.githubusercontent.com/MohamadKh75/AdCalc/master/__others/AdCalc.png" alt="AdCalc">
-
+<br><br>
+  
+  
 Probably The Most Advanced Calculator in the World in React-Native! :grin:
 </div>
 
