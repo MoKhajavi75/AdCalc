@@ -4,7 +4,7 @@
 <br><br>
   
   
-Probably The Most Advanced Calculator in the World in React-Native! :grin:
+<strong>Probably The Most Advanced Calculator in the World in React-Native!</strong> :grin:
 </div>
 
 ---
