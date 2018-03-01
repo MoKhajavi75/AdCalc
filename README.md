@@ -1,7 +1,9 @@
 # AdCalc
+<div align="center">
 ![alt tag](https://raw.githubusercontent.com/MohamadKh75/AdCalc/master/__others/AdCalc.png)
 
 Probably The Most Advanced Calculator in the World in React-Native! :grin:
+</div>
 
 ---
 
@@ -25,7 +27,7 @@ Probably The Most Advanced Calculator in the World in React-Native! :grin:
 * About
 * Exit
 
-### Second Phase:
+### Forth Phase:
 * Font Customizations (Persian About (IRYekan)
 * Higher Order Components, Right Side Drawer,   |   name   | setting |
 
