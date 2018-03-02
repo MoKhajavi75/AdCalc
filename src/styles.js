@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
     bala: {
       flex: 1,
       margin: 5,
-      backgroundColor: '#193441'
+      backgroundColor: '#193441',
+      justifyContent: 'center',
+      alignItems: 'center'
     },
 
     balaText: {
@@ -24,6 +26,8 @@ const styles = StyleSheet.create({
       flex: 9,
       margin: 5,
       backgroundColor: '#3E606F',
+      justifyContent: 'center',
+      alignItems: 'center'
     },
 
     paiinText: {
