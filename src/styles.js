@@ -1,27 +1,36 @@
+import { StyleSheet } from 'react-native';
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+      alignItems: 'stretch',
+      backgroundColor: 'yellow',
     },
   
     bala: {
-      flex: 3,
-      fontSize: 96,
-      color: 'red',
-      textAlign: 'center',
-      margin: 10,
-      backgroundColor: '#FF0000'
+      flex: 1,
+      margin: 5,
+      backgroundColor: '#193441'
     },
+
+    balaText: {
+        fontSize: 25,
+        color: 'white',
+        textAlign: 'center',
+      },
   
     paiin: {
-      flex: 7,
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-      backgroundColor: '#00FF00',
+      flex: 9,
+      margin: 5,
+      backgroundColor: '#3E606F',
     },
+
+    paiinText: {
+        fontSize: 25,
+        color: 'white',
+        textAlign: 'center',
+      },
   });
 
 export default styles;
