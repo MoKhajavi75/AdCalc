@@ -3,7 +3,7 @@
 // ********************
 
 import React, { Component } from 'react';
-import { Text, View, AppRegistry } from 'react-native';
+import { Text, View } from 'react-native';
 
 import styles from './src/styles.js';
 
@@ -14,7 +14,7 @@ export default class AdCalc extends Component {
       <View style={styles.container}>
 
             <View style={styles.bala}>
-              <Text style={styles.balaText}>Here is bala :|</Text>
+              <Text style={styles.balaText}>Here is balaaa :|</Text>
             </View>
 
             <View style={styles.paiin}>
