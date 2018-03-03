@@ -3,7 +3,7 @@
 // ********************
 
 import React, { Component } from 'react';
-import { Button, Text, View, Dimensions } from 'react-native';
+import { Button, Text, View, Dimensions, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 
 import styles from './src/styles.js';
@@ -15,22 +15,23 @@ export default class AdCalc extends React.Component {
   }
 }
 
+class LogoTitle extends React.Component {
+  render() {
+    return (
+      <Image
+        source={require('./src/img/logo_top.png')}
+        style={{ width: 100, height: 50, marginTop: 10, marginBottom: 10, alignItems: 'center' }}
+      />
+    );
+  }
+}
+
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home',
-    headerTintColor: '#F0FFFF',
-
-    headerStyle: {
-      backgroundColor: '#f4511e',
-    },
-
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      marginStart: (Dimensions.get('window').width) / 2.4,
-    },
+    headerTitle: <LogoTitle />,
   };
 
-  
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -86,6 +87,9 @@ class DetailsScreen extends React.Component {
     );
   }
 }
+
+
+
 
 
 const RootStack = StackNavigator(
