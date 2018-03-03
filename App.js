@@ -24,11 +24,9 @@ class HomeScreen extends React.Component {
       backgroundColor: '#f4511e',
     },
 
-    headerRight: (<View><Text style = {{marginLeft: 120}}>Test</Text></View>),
-
     headerTitleStyle: {
       fontWeight: 'bold',
-      marginStart: (Dimensions.get('window').width) / 2,
+      marginStart: (Dimensions.get('window').width) / 2.4,
     },
   };
 
