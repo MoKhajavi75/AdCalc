@@ -30,20 +30,24 @@ export default class AdCalc extends React.Component {
     }
 }
 
+onRegisterPressed() {
+      
+}
+
 render() {
     return (
-        <KeyboardAvoidingView
-          style = {styles.container}
-          behavior = 'padding'>
+        <KeyboardAvoidingView style = {styles.container} behavior = 'padding'>
 
-          <View style = {styles.loginPageTop}>
+          <View
+          style = {styles.loginPageTop}
+          >
             <Image
               source = {require('./src/img/logo_top.png')}
               style = {styles.loginPageLogo}
             />
           </View>
 
-          <View style = {styles.loginPageMiddle}>
+          <View style = {styles.loginPageMiddle} >
             <TextInput
               style = {styles.input}
               placeholder = 'Email'
@@ -73,11 +77,14 @@ render() {
             />
           </View>
           
-          <View style = {styles.loginPageBottom}>
-            <Text>
-                {this.state.email}
-            </Text>
-          </View>
+          <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
+            <TouchableHighlight onPress={this.onRegisterPressed.bind(this)} style={styles.button}>
+              <Text style={styles.buttonText}>
+                Register!
+              </Text>
+            </TouchableHighlight>
+          </KeyboardAvoidingView>
+
         </KeyboardAvoidingView>
 )
 }
