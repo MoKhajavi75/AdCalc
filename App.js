@@ -51,27 +51,32 @@ render() {
             <TextInput
               style = {styles.input}
               placeholder = 'Email'
+              underlineColorAndroid = 'transparent' 
               onChangeText =  {(text) => this.setState({email: text})}
             />
             <TextInput
               style = {styles.input}
               placeholder = "First Name"
+              underlineColorAndroid = 'transparent' 
               onChangeText = {(text) => this.setState({fname: text})}
             />
             <TextInput
               style = {styles.input}
               placeholder = "Last Name"
+              underlineColorAndroid = 'transparent' 
               onChangeText = {(text) => this.setState({lname: text})}
             />
             <TextInput
               style = {styles.input}
               placeholder = "Password"
               secureTextEntry = {true}
+              underlineColorAndroid = 'transparent' 
               onChangeText = {(text) => this.setState({password: text})}
             />
             <TextInput
               style = {styles.input}
               placeholder = "Password Confirmation"
+              underlineColorAndroid = 'transparent' 
               secureTextEntry = {true}
               onChangeText = {(text) => this.setState({password_confirmation: text})}
             />
