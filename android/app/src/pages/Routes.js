@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './HomeScreen.js';
 import Register from './Register.js';
+import Login from './Login.js';
+
 
 const RootStack = StackNavigator(
   {
-    Home: { screen: HomeScreen },
+    _Login: { screen: Login },
   
-    Register: { screen: Register },
+    _Register: { screen: Register },
+
+    _HomeScreen: { screen: HomeScreen },
   },
   
   {
-    initialRouteName: 'Home',
+    initialRouteName: '_Login',
   }
 );
 

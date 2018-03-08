@@ -25,6 +25,9 @@ export default class Register extends React.Component {
     }
   }
 
+
+  static navigationOptions = ({ navigation }) => {};
+
   onRegisterPressed() {
         
   }
@@ -77,7 +80,9 @@ export default class Register extends React.Component {
             </View>
             
             <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
-              <TouchableHighlight onPress={this.onRegisterPressed.bind(this)} style={styles.button}>
+              <TouchableHighlight
+                onPress={this.onRegisterPressed.bind(this)}
+                style={styles.button}>
                 <Text style={styles.buttonText}>
                   Register!
                 </Text>
