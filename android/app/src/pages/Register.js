@@ -23,68 +23,70 @@ export default class Register extends React.Component {
         password: "",
         password_confirmation: "",
     }
-}
+  }
 
-onRegisterPressed() {
-      
-}
+  onRegisterPressed() {
+        
+  }
 
-render() {
-    return (
-        <KeyboardAvoidingView style = {styles.container} behavior = 'padding'>
+  render() {
+      return (
+          <KeyboardAvoidingView style = {styles.container} behavior = 'padding'>
 
-          <View
-          style = {styles.loginPageTop}
-          >
+            <View
+              style = {styles.loginPageTop}>
+                <Image
+                  source = {require('../img/logo_top.png')}
+                  style = {styles.loginPageLogo}
+                />
+            </View>
+
+            <View style = {styles.loginPageMiddle} >
+              <TextInput
+                style = {styles.input}
+                placeholder = 'Email'
+                underlineColorAndroid = 'transparent' 
+                onChangeText =  {(text) => this.setState({email: text})}
+              />
+              <TextInput
+                style = {styles.input}
+                placeholder = "First Name"
+                underlineColorAndroid = 'transparent' 
+                onChangeText = {(text) => this.setState({fname: text})}
+              />
+              <TextInput
+                style = {styles.input}
+                placeholder = "Last Name"
+                underlineColorAndroid = 'transparent' 
+                onChangeText = {(text) => this.setState({lname: text})}
+              />
+              <TextInput
+                style = {styles.input}
+                placeholder = "Password"
+                secureTextEntry = {true}
+                underlineColorAndroid = 'transparent' 
+                onChangeText = {(text) => this.setState({password: text})}
+              />
+              <TextInput
+                style = {styles.input}
+                placeholder = "Password Confirmation"
+                underlineColorAndroid = 'transparent' 
+                secureTextEntry = {true}
+                onChangeText = {(text) => this.setState({password_confirmation: text})}
+              />
+            </View>
             
-          </View>
+            <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
+              <TouchableHighlight onPress={this.onRegisterPressed.bind(this)} style={styles.button}>
+                <Text style={styles.buttonText}>
+                  Register!
+                </Text>
+              </TouchableHighlight>
+            </KeyboardAvoidingView>
 
-          <View style = {styles.loginPageMiddle} >
-            <TextInput
-              style = {styles.input}
-              placeholder = 'Email'
-              underlineColorAndroid = 'transparent' 
-              onChangeText =  {(text) => this.setState({email: text})}
-            />
-            <TextInput
-              style = {styles.input}
-              placeholder = "First Name"
-              underlineColorAndroid = 'transparent' 
-              onChangeText = {(text) => this.setState({fname: text})}
-            />
-            <TextInput
-              style = {styles.input}
-              placeholder = "Last Name"
-              underlineColorAndroid = 'transparent' 
-              onChangeText = {(text) => this.setState({lname: text})}
-            />
-            <TextInput
-              style = {styles.input}
-              placeholder = "Password"
-              secureTextEntry = {true}
-              underlineColorAndroid = 'transparent' 
-              onChangeText = {(text) => this.setState({password: text})}
-            />
-            <TextInput
-              style = {styles.input}
-              placeholder = "Password Confirmation"
-              underlineColorAndroid = 'transparent' 
-              secureTextEntry = {true}
-              onChangeText = {(text) => this.setState({password_confirmation: text})}
-            />
-          </View>
-          
-          <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
-            <TouchableHighlight onPress={this.onRegisterPressed.bind(this)} style={styles.button}>
-              <Text style={styles.buttonText}>
-                Register!
-              </Text>
-            </TouchableHighlight>
           </KeyboardAvoidingView>
-
-        </KeyboardAvoidingView>
-)
-}
+      )
+  }
 }
 
 
@@ -146,6 +148,5 @@ const styles = StyleSheet.create({
       color: '#FFF',
       alignSelf: 'center'
     },
-  
 
-  });
+});
