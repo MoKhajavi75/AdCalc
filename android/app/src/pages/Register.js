@@ -8,7 +8,8 @@ import {
         TouchableHighlight,
         KeyboardAvoidingView,
         } from 'react-native';
-import { StackNavigator } from 'react-navigation'
+import React, { Component } from 'react';
+import { StackNavigator } from 'react-navigation';
 
 
 export default class Register extends React.Component {
@@ -35,10 +36,7 @@ render() {
           <View
           style = {styles.loginPageTop}
           >
-            <Image
-              source = {require('./android/app/src/img/logo_top.png')}
-              style = {styles.loginPageLogo}
-            />
+            
           </View>
 
           <View style = {styles.loginPageMiddle} >
