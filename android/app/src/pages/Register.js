@@ -81,8 +81,9 @@ export default class Register extends React.Component {
             
             <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
               <TouchableHighlight
-                onPress={this.onRegisterPressed.bind(this)}
-                style={styles.button}>
+                onPress = {this.onRegisterPressed.bind(this)}
+                style = {styles.button}
+                underlayColor = '#1E90FF'>
                 <Text style={styles.buttonText}>
                   Register!
                 </Text>
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
       fontSize: 18,
       borderWidth: 1,
       borderRadius: 25,
-      borderColor: '#48bbec',
+      borderColor: '#00BFFF',
     },
 
     button: {
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
       borderRadius: 25,
       alignSelf: 'stretch',
       justifyContent: 'center',
-      backgroundColor: '#48BBEC',
+      backgroundColor: '#00BFFF',
     },
 
     buttonText: {

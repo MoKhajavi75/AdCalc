@@ -67,7 +67,8 @@ export default class Login extends React.Component {
             <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
               <TouchableHighlight
                 onPress = {() => this.props.navigation.navigate('_HomeScreen')}
-                style = {styles.button}>
+                style = {styles.button}
+                underlayColor = '#1E90FF'>
                 <Text style = {styles.buttonText}>
                   Login
                 </Text>
@@ -75,7 +76,8 @@ export default class Login extends React.Component {
 
               <TouchableHighlight
                 onPress = {() => this.props.navigation.navigate('_Register')}
-                style = {styles.button}>
+                style = {styles.button}
+                underlayColor = '#1E90FF'>
                 <Text style = {styles.buttonText}>
                   Register!
                 </Text>
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
       fontSize: 18,
       borderWidth: 1,
       borderRadius: 25,
-      borderColor: '#48bbec',
+      borderColor: '#00BFFF',
     },
 
     button: {
@@ -139,7 +141,7 @@ const styles = StyleSheet.create({
       borderRadius: 25,
       alignSelf: 'stretch',
       justifyContent: 'center',
-      backgroundColor: '#48BBEC',
+      backgroundColor: '#00BFFF',
     },
 
     buttonText: {
