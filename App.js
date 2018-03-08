@@ -13,7 +13,7 @@ import {Button,
         KeyboardAvoidingView,
         } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import RootStack from './android/app/src/pages/routes.js';
+import RootStack from './android/app/src/pages/Routes.js';
 
 
 export default class AdCalc extends React.Component {
