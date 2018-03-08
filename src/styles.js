@@ -36,14 +36,17 @@ const styles = StyleSheet.create({
       margin: 10,
       marginHorizontal: 15,
       padding: 3,
+      textAlign: 'center',
       fontSize: 18,
       borderWidth: 1,
-      borderColor: '#48bbec'
+      borderRadius: 25,
+      borderColor: '#48bbec',
     },
 
     button: {
       height: 50,
       marginHorizontal: 13,
+      borderRadius: 25,
       alignSelf: 'stretch',
       justifyContent: 'center',
       backgroundColor: '#48BBEC',
