@@ -1,28 +1,18 @@
-import {
-    StyleSheet,
-    Button,
-    Text,
-    View,
-    Image,
-    TextInput,
-    TouchableHighlight,
-    KeyboardAvoidingView,
-    } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './HomeScreen.js';
 import Register from './Register.js';
 
 const RootStack = StackNavigator(
-    {
-      Home: { screen: HomeScreen },
+  {
+    Home: { screen: HomeScreen },
   
-      Register: { screen: Register },
-    },
+    Register: { screen: Register },
+  },
   
-    {
-      initialRouteName: 'Home',
-    }
-  );
+  {
+    initialRouteName: 'Home',
+  }
+);
 
 export default RootStack;
