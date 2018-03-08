@@ -3,18 +3,87 @@
 // ********************
 
 import React, { Component } from 'react';
-import { Button, Text, View, Dimensions, Image } from 'react-native';
+import {Button,
+        Text,
+        View,
+        Dimensions,
+        Image,
+        TextInput,
+        TouchableHighlight,
+        KeyboardAvoidingView,
+        } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 
 import styles from './src/styles.js';
 
 
 export default class AdCalc extends React.Component {
-  render() {
-    return <RootStack />;
-  }
+  constructor(){
+    super();
+    
+    this.state = {
+        email: "",
+        fname: "",
+        lname: "",
+        password: "",
+        password_confirmation: "",
+    }
 }
 
+render() {
+    return (
+        <KeyboardAvoidingView
+          style = {styles.container}
+          behavior = 'padding'>
+
+          <View style = {styles.loginPageTop}>
+            <Image
+              source = {require('./src/img/logo_top.png')}
+              style = {styles.loginPageLogo}
+            />
+          </View>
+
+          <View style = {styles.loginPageMiddle}>
+            <TextInput
+              style = {styles.input}
+              placeholder = 'Email'
+              onChangeText =  {(text) => this.setState({email: text})}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder = "First Name"
+              onChangeText = {(text) => this.setState({fname: text})}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder = "Last Name"
+              onChangeText = {(text) => this.setState({lname: text})}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder = "Password"
+              secureTextEntry = {true}
+              onChangeText = {(text) => this.setState({password: text})}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder = "Password Confirmation"
+              secureTextEntry = {true}
+              onChangeText = {(text) => this.setState({password_confirmation: text})}
+            />
+          </View>
+          
+          <View style = {styles.loginPageBottom}>
+            <Text>
+                {this.state.email}
+            </Text>
+          </View>
+        </KeyboardAvoidingView>
+)
+}
+}
+
+/*
 class LogoTitle extends React.Component {
   render() {
     return (
@@ -34,19 +103,6 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => {
-            /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Details', {
-              itemId: 86,
-              otherParam: 'anything you want here',
-            });
-          }}
-        />
-      </View>
     );
   }
 }
@@ -61,7 +117,7 @@ class DetailsScreen extends React.Component {
   };
   
   render() {
-    /* 2. Read the params from the navigation state */
+    // 2. Read the params from the navigation state
     const { params } = this.props.navigation.state;
     const itemId = params ? params.itemId : null;
     const otherParam = params ? params.otherParam : null;
@@ -108,3 +164,4 @@ const RootStack = StackNavigator(
     initialRouteName: 'Home',
   }
 );
+*/
