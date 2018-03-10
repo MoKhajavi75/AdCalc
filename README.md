@@ -13,8 +13,7 @@
 ### First Phase:
 * Login
 * Register
-* Connect to DB (Login & Register)
-* Queries for DB (Insert - Select - Remove)
+* Connect to API (Login & Register)
 
 ### Second Phase:
 * Splash Screen
@@ -24,15 +23,20 @@
 * Swipe left or right to clear a character
 
 ### Third Phase:
-* Profile
-* Setting
+* Profile (import pic from gallery - get the fname & lname from API - update if needed - delete user)
+* Setting (choose theme - choose font - font size - choose language)
 * About
 * Exit
 
 ### Forth Phase:
-* Font Customizations (Persian About (IRYekan)
+* Font Customizations {IranSans (EN & FA) - IRYekan (EN & FA) - ComicSans(EN) & IranYekan (FA)}
 * Higher Order Components, Right Side Drawer,   |   name   | setting |
 
 ---
+---
 
-## Todo: 2018.03.02
+## Done: 2018.03.10
+### First Phase:
+* Login :white_check_mark:
+* Register  :white_check_mark:
+* Connect to API (Login & Register) :white_check_mark:
