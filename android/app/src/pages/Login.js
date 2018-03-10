@@ -26,10 +26,6 @@ export default class Login extends React.Component {
   static navigationOptions = ({ navigation }) => {};
 
 
-  onRegisterPressed() {
-        
-  }
-
   onLoginPressed() {
         
   }
