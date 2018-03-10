@@ -32,7 +32,6 @@ export default class Register extends React.Component {
   onRegisterPressed() {
     // Email Validation
     if (validateEmail(this.state.email)) {
-      this.registerUser();
     }
     
     else {
@@ -41,7 +40,6 @@ export default class Register extends React.Component {
 
     // FirstName Validation
     if (validateName(this.state.fname)) {
-      this.registerUser();
     }
     
     else {
@@ -50,11 +48,18 @@ export default class Register extends React.Component {
 
     // LastName Validation
     if (validateName(this.state.lname)) {
-      this.registerUser();
     }
     
     else {
       alert("The Last Name is invalid!");
+    }
+
+    // Password == Password Confirmation
+    if (this.state.password == this.state.password_confirmation) {
+    }
+    
+    else {
+      alert("Password does not match the confirm password!");
     }
 
     // Password Validation
@@ -68,12 +73,7 @@ export default class Register extends React.Component {
   }
 
   registerUser() {
-    let email = this.state.email;
-    let fname = this.state.fname;
-    let lname = this.state.lname;
-    let password = this.state.password;
-
-    fetch('https://mywebsite.com/endpoint/', {
+    fetch('https://a420b446.ngrok.io/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -81,10 +81,10 @@ export default class Register extends React.Component {
       },
       
       body: JSON.stringify({
-        email: "",
-        fname: "",
-        lname: "",
-        password: "",
+        email: this.state.email,
+        firstname: this.state.fname,
+        lastname: this.state.lname,
+        password: this.state.password,
       }),
     });
   }
