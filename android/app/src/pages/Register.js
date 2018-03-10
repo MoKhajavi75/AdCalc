@@ -10,6 +10,7 @@ import {
         } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
+import Controllers from '../controller/controller.js';
 
 
 export default class Register extends React.Component {
@@ -25,10 +26,48 @@ export default class Register extends React.Component {
     }
   }
 
-
   static navigationOptions = ({ navigation }) => {};
 
+
   onRegisterPressed() {
+    // Email Validation
+    if (validateEmail(this.state.email)) {
+      this.registerUser();
+    }
+    
+    else {
+      alert("The Email address is invalid!");
+    }
+
+    // FirstName Validation
+    if (validateName(this.state.fname)) {
+      this.registerUser();
+    }
+    
+    else {
+      alert("The First Name is invalid!");
+    }
+
+    // LastName Validation
+    if (validateName(this.state.lname)) {
+      this.registerUser();
+    }
+    
+    else {
+      alert("The Last Name is invalid!");
+    }
+
+    // Password Validation
+    if (validatePassword(this.state.password)) {
+      this.registerUser();
+    }
+    
+    else {
+      alert("The Password must be:\n8 alphanumeric characters\nincluding one uppercase letter\nincluding one special character");
+    }
+  }
+
+  registerUser() {
     let email = this.state.email;
     let fname = this.state.fname;
     let lname = this.state.lname;
@@ -48,8 +87,6 @@ export default class Register extends React.Component {
         password: "",
       }),
     });
-
-    alert(email);
   }
 
 
