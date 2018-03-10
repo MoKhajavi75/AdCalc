@@ -40,3 +40,11 @@
 * Login :white_check_mark:
 * Register  :white_check_mark:
 * Connect to API (Login & Register) :white_check_mark:
+
+---
+
+## Reminder:
+* Validation should be fixed
+* process the server's response
+* token
+* login 
