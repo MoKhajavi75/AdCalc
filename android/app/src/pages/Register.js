@@ -29,8 +29,29 @@ export default class Register extends React.Component {
   static navigationOptions = ({ navigation }) => {};
 
   onRegisterPressed() {
-        
+    let email = this.state.email;
+    let fname = this.state.fname;
+    let lname = this.state.lname;
+    let password = this.state.password;
+
+    fetch('https://mywebsite.com/endpoint/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify({
+        email: "",
+        fname: "",
+        lname: "",
+        password: "",
+      }),
+    });
+
+    alert(email);
   }
+
 
   render() {
       return (
@@ -49,6 +70,7 @@ export default class Register extends React.Component {
                 style = {styles.input}
                 placeholder = 'Email'
                 underlineColorAndroid = 'transparent' 
+                keyboardType = "email-address" 
                 onChangeText =  {(text) => this.setState({email: text})}
               />
               <TextInput
