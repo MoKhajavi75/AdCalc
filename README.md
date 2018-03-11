@@ -44,5 +44,6 @@
 ---
 
 ## Reminder:
+* check connectivity (https://facebook.github.io/react-native/docs/netinfo.html)
 * SnackBar (https://github.com/cooperka/react-native-snackbar)
 * token
