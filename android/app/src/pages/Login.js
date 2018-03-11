@@ -25,7 +25,10 @@ export default class Login extends React.Component {
   }
 
 
-  static navigationOptions = ({ navigation }) => {};
+  static navigationOptions = {
+    headerTransparent: true,
+  };
+
 
 
   onLoginPressed() {
