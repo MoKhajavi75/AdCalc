@@ -31,49 +31,19 @@ export default class Register extends React.Component {
 
 
   onRegisterPressed() {
-    // Email Validation
-    if (validateEmail(this.state.email)) {
-    }
-    
-    else {
-      alert("The Email address is invalid!");
-    }
-
-    // FirstName Validation
-    if (validateName(this.state.fname)) {
-    }
-    
-    else {
-      alert("The First Name is invalid!");
-    }
-
-    // LastName Validation
-    if (validateName(this.state.lname)) {
-    }
-    
-    else {
-      alert("The Last Name is invalid!");
-    }
-
-    // Password == Password Confirmation
-    if (this.state.password == this.state.password_confirmation) {
-    }
-    
-    else {
-      alert("Password does not match the confirm password!");
-    }
-
-    // Password Validation
-    if (validatePassword(this.state.password)) {
-      this.registerUser();
-    }
-    
-    else {
-      alert("The Password must be:\n8 alphanumeric characters\nincluding one uppercase letter\nincluding one special character");
+    // Validations
+    if (validateEmail(this.state.email)
+        && validateName(this.state.fname, true)
+        && validateName(this.state.lname, false)
+        && validatePassword(this.state.password)
+        && validateConfirm(this.state.password, this.state.password_confirmation)) {
+          
+          this.registerUser();
     }
   }
 
   registerUser() {
+    /*
     fetch('https://a420b446.ngrok.io/register', {
       method: 'POST',
       headers: {
@@ -88,6 +58,8 @@ export default class Register extends React.Component {
         password: this.state.password,
       }),
     });
+    */
+   alert("Done!");
   }
 
 
