@@ -50,20 +50,7 @@ validateName = (name, isFirstName) => {
 }
 
 
-validatePassword = (pass, isLogin = true) => {
-  if (isLogin) {
-    if (pass == "") {
-      alert("Please enter your Password!")
-      return false;
-    }
-  }
-
-  else {
-    if (pass == "") {
-      alert("Please enter your Password!")
-      return false;
-    }
-    
+validatePassword = (pass) => {   
     var regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     
     if (regex.test(pass)) {
@@ -73,7 +60,6 @@ validatePassword = (pass, isLogin = true) => {
       alert("The Password must be:\n8 alphanumeric characters\nincluding one uppercase letter\nincluding one special character")
       return false;
     }
-  }
 }
 
 
@@ -86,5 +72,17 @@ validateConfirm = (pass, passConf) => {
     return false;
   }
 }
+
+
+validateFilled = (txt) => {   
+  if (txt != "") {
+    return true;
+  }
+  else {
+    alert("Please enter your Password!")
+    return false;
+  }
+}
+
 
 export default validateEmail;
