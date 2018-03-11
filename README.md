@@ -44,7 +44,5 @@
 ---
 
 ## Reminder:
-* Validation should be fixed
-* process the server's response
+* SnackBar (https://github.com/cooperka/react-native-snackbar)
 * token
-* login 
