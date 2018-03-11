@@ -35,7 +35,7 @@ export default class Register extends React.Component {
     if (validateEmail(this.state.email)
         && validateName(this.state.fname, true)
         && validateName(this.state.lname, false)
-        && validatePassword(this.state.password)
+        && validatePassword(this.state.password, false)
         && validateConfirm(this.state.password, this.state.password_confirmation)) {
           
           this.registerUser();
@@ -43,8 +43,9 @@ export default class Register extends React.Component {
   }
 
   registerUser() {
-    /*
-    fetch('https://a420b446.ngrok.io/register', {
+    let url = "https://a420b446.ngrok.io/";
+
+    fetch(url + 'register', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -57,9 +58,15 @@ export default class Register extends React.Component {
         lastname: this.state.lname,
         password: this.state.password,
       }),
-    });
-    */
-   alert("Done!");
+    }).then((response) => response.json())
+        .then((responseJson) => {
+          alert(responseJson.message);
+          return responseJson.message;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    
   }
 
 
