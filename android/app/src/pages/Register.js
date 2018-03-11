@@ -27,7 +27,10 @@ export default class Register extends React.Component {
     }
   }
 
-  static navigationOptions = ({ navigation }) => {};
+  static navigationOptions = {
+    headerTransparent: true,
+    gesturesEnabled: true,
+  };
 
 
   onRegisterPressed() {
