@@ -11,6 +11,8 @@ import {
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 
+import Controllers from '../controller/controller.js';
+
 
 export default class Login extends React.Component {
   constructor(){
@@ -27,7 +29,36 @@ export default class Login extends React.Component {
 
 
   onLoginPressed() {
-        
+    // Validation
+    if (validateEmail(this.state.email)
+        && validatePassword(this.state.password)) {
+      this.loginUser();
+    }
+  }
+
+  loginUser() {
+    let url = "https://a420b446.ngrok.io/";
+
+    fetch(url + 'login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    }).then((response) => response.json())
+        .then((responseJson) => {
+          alert(responseJson.message);
+          return responseJson.message;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    
   }
 
   
@@ -49,6 +80,7 @@ export default class Login extends React.Component {
                 style = {styles.input}
                 placeholder = 'Email'
                 underlineColorAndroid = 'transparent' 
+                keyboardType = "email-address" 
                 onChangeText =  {(text) => this.setState({email: text})}
               />
               <TextInput
@@ -62,7 +94,8 @@ export default class Login extends React.Component {
             
             <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
               <TouchableHighlight
-                onPress = {() => this.props.navigation.navigate('_HomeScreen')}
+                onLongPress = {() => this.props.navigation.navigate('_HomeScreen')}
+                onPress = {this.onLoginPressed.bind(this)}
                 style = {styles.button}
                 underlayColor = '#1E90FF'>
                 <Text style = {styles.buttonText}>
@@ -75,7 +108,7 @@ export default class Login extends React.Component {
                 style = {styles.button}
                 underlayColor = '#1E90FF'>
                 <Text style = {styles.buttonText}>
-                  Register!
+                  Register
                 </Text>
               </TouchableHighlight>
             </KeyboardAvoidingView>
