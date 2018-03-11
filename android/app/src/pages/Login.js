@@ -31,13 +31,13 @@ export default class Login extends React.Component {
   onLoginPressed() {
     // Validation
     if (validateEmail(this.state.email)
-        && validatePassword(this.state.password)) {
-      this.loginUser();
-    }
+        && validateFilled(this.state.password)) {
+          this.loginUser();
+        }
   }
 
   loginUser() {
-    let url = "https://a420b446.ngrok.io/";
+    let url = 'http://69778130.ngrok.io/'
 
     fetch(url + 'login', {
       method: 'POST',
@@ -53,12 +53,11 @@ export default class Login extends React.Component {
     }).then((response) => response.json())
         .then((responseJson) => {
           alert(responseJson.message);
-          return responseJson.message;
-        })
-        .catch((error) => {
-          console.error(error);
+
+          if (responseJson.error == false) {
+            this.props.navigation.navigate('_HomeScreen');
+          }
         });
-    
   }
 
   
