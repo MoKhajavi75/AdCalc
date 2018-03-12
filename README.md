@@ -46,4 +46,5 @@
 ## Reminder:
 * check connectivity (https://facebook.github.io/react-native/docs/netinfo.html)
 * SnackBar (https://github.com/cooperka/react-native-snackbar)
+* Restructure the project (https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
 * token
