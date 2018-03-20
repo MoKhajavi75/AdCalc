@@ -45,7 +45,8 @@
 
 ## Reminder:
 * Extended Stylesheet
-* Gradient
+* Customized alert react native
 * SnackBar (https://github.com/cooperka/react-native-snackbar)
+* Gradient
 * Restructure the project (https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
 * token
