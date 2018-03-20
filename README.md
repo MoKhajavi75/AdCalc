@@ -44,7 +44,6 @@
 ---
 
 ## Reminder:
-* Extended Stylesheet
 * Customized alert react native
 * SnackBar (https://github.com/cooperka/react-native-snackbar)
 * Gradient
