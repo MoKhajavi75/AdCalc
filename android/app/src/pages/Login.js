@@ -7,6 +7,7 @@ import {
         TextInput,
         TouchableHighlight,
         KeyboardAvoidingView,
+        NetInfo,
         } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
@@ -23,20 +24,49 @@ export default class Login extends React.Component {
         password: "",
     }
   }
-
+  
 
   static navigationOptions = {
     headerTransparent: true,
   };
 
+  componentDidMount() {
+    NetInfo.isConnected.addEventListener(
+        'change',
+        this._handleConnectivityChange
+    );
+    NetInfo.isConnected.fetch().done(
+        (isConnected) => { this.setState({isConnected}); }
+    );
+  }
+  
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener(
+        'change',
+        this._handleConnectivityChange
+    );
+  }
+  
+  _handleConnectivityChange = (isConnected) => {
+    this.setState({
+      isConnected,
+    });
+  };
+  
 
 
   onLoginPressed() {
     // Validation
-    if (validateEmail(this.state.email)
-        && validateFilled(this.state.password)) {
-          this.loginUser();
-        }
+    if (this.state.isConnected) {
+      if (validateEmail(this.state.email)
+          && validateFilled(this.state.password)) {
+            this.loginUser();
+      }
+    }
+
+    else {
+      alert("Connect to internet please!")
+    }
   }
 
   loginUser() {
