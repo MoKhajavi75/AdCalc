@@ -11,6 +11,7 @@ import {
         } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Controllers from '../controller/controller.js';
 
@@ -152,7 +153,7 @@ export default class Login extends React.Component {
 
 
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',

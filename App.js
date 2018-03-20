@@ -14,6 +14,12 @@ import {Button,
         } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import RootStack from './android/app/src/pages/Routes.js';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+
+EStyleSheet.build({
+  $fontColor: 'black'
+});
 
 
 export default class AdCalc extends React.Component {
