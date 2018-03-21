@@ -3,15 +3,7 @@
 // ********************
 
 import React, { Component } from 'react';
-import {Button,
-        Text,
-        View,
-        Dimensions,
-        Image,
-        TextInput,
-        TouchableHighlight,
-        KeyboardAvoidingView,
-        } from 'react-native';
+
 import { StackNavigator } from 'react-navigation';
 import RootStack from './android/app/src/pages/Routes.js';
 import EStyleSheet from 'react-native-extended-stylesheet';
