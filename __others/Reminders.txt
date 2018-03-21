@@ -1,0 +1,3 @@
+FAILURE: Build failed with an exception. * What went wrong: Execution failed for task ':app:processDebugResources'. > java.io.IOException: Could not delete path ..'.
+
+If using React Native, inside the project folder there will be android, remove build from there - at least that's what worked for me.
