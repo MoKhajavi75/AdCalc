@@ -17,9 +17,7 @@ import RootStack from './android/app/src/pages/Routes.js';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 
-EStyleSheet.build({
-  $fontColor: 'black'
-});
+EStyleSheet.build({});
 
 
 export default class AdCalc extends React.Component {
