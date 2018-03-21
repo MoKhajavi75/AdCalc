@@ -1,5 +1,4 @@
 import {
-        StyleSheet,
         Button,
         Text,
         View,
@@ -8,12 +7,14 @@ import {
         TouchableHighlight,
         KeyboardAvoidingView,
         NetInfo,
+        Alert,
         } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Controllers from '../controller/controller.js';
+//import myAlert from '../components/myAlert.js';
 
 
 export default class Login extends React.Component {
@@ -53,8 +54,8 @@ export default class Login extends React.Component {
       isConnected,
     });
   };
-  
 
+  
 
   onLoginPressed() {
     // Validation
@@ -66,7 +67,7 @@ export default class Login extends React.Component {
     }
 
     else {
-      alert("Connect to internet please!")
+      Alert.alert("ERROR", "Connect to internet please!")
     }
   }
 
@@ -211,6 +212,10 @@ const styles = EStyleSheet.create({
       color: '#FFFFFF',
       alignSelf: 'center'
     },
-  
 
+    errorText: {
+      fontSize: 14,
+      color: '#1DBC5C',
+      alignSelf: 'center',
+    }
   });
