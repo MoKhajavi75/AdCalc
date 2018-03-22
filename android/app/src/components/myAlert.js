@@ -3,37 +3,30 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
 
-export default function myAlert (showAlert, title) {
+export default function myAlert({ showAlert, title, msg, onDismiss }) {
   return <AwesomeAlert
-              show = {showAlert}
-              showProgress = {false}
-              title = "AwesomeAlert"
-              message = "I have a message for you!"
-              closeOnTouchOutside = {false}
-              closeOnHardwareBackPress = {false}
-              showCancelButton = {true}
-              showConfirmButton = {true}
-              cancelText = "No, cancel"
-              confirmText = "Yes, delete it"
-              confirmButtonColor = "#DD6B55"
+    show={showAlert}
+    title={title}
+    message={msg}
+    closeOnTouchOutside={false}
+    closeOnHardwareBackPress={false}
+    showConfirmButton={true}
+    confirmText="Dismiss"
+    confirmButtonColor="#DD6B55"
+    onCancelPressed={onDismiss}
+    onConfirmPressed={onDismiss}
+    onDismiss={onDismiss}
+  />
 
-              onCancelPressed = {() => {
-                this.hideAlert();
-              }}
-              onConfirmPressed = {() => {
-                this.hideAlert();
-              }}
-            />
-
-  }
+}
 
 
 
 
 const styles = EStyleSheet.create({
-    errorText: {
-      fontSize: 14,
-      color: '#1DBC5C',
-      alignSelf: 'center',
-    }
-  });
+  errorText: {
+    fontSize: 14,
+    color: '#1DBC5C',
+    alignSelf: 'center',
+  }
+});
