@@ -134,7 +134,6 @@ export default class Login extends React.Component {
   )
 
 
-
   // main render func
   render() {
     const { showAlert, _title, msg } = this.state;
@@ -148,7 +147,7 @@ export default class Login extends React.Component {
             style = {styles.loginPageLogo} />
         </View>
         
-        <KeyboardAvoidingView style = {styles.loginPageMiddle}>
+        <KeyboardAvoidingView style = {{flex: 5, justifyContent: 'center'}}>
           <TextInput
             style = {styles.input}
             placeholder = 'Email'
@@ -213,11 +212,6 @@ const styles = EStyleSheet.create({
     marginVertical: 5,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-
-  loginPageMiddle: {
-    flex: 5,
-    justifyContent: 'center',
   },
   
   input: {

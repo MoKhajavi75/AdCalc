@@ -1,51 +1,116 @@
 import {
-        StyleSheet,
-        Button,
-        Text,
-        View,
-        Image,
-        TextInput,
-        TouchableHighlight,
-        KeyboardAvoidingView,
-        } from 'react-native';
+  View,
+  Image,
+  TextInput,
+  TouchableHighlight,
+  KeyboardAvoidingView,
+  NetInfo,
+  StatusBar,
+} from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Left,
+  Right,
+  Body,
+  Icon,
+  Text,
+} from 'native-base';
 
 import Controllers from '../controller/controller.js';
+import myAlert from '../components/myAlert.js';
 
 
 export default class Register extends React.Component {
-  constructor(){
+  constructor() {
     super();
     
     this.state = {
-        email: "",
-        fname: "",
-        lname: "",
-        password: "",
-        password_confirmation: "",
+      email: "",
+      fname: "",
+      lname: "",
+      password: "",
+      password_confirmation: "",
+      _title: '',
+      msg: '',
     }
   }
 
+
+  // navigation Options
   static navigationOptions = {
-    headerTransparent: true,
-    gesturesEnabled: true,
+    header: null,
+    tabBarVisible: false,
   };
 
 
+  // Check internet connectivity
+  componentDidMount() {
+    NetInfo.isConnected.addEventListener(
+      'change',
+      this._handleConnectivityChange
+    );
+    NetInfo.isConnected.fetch().done(
+      (isConnected) => { this.setState({ isConnected }); }
+    );
+  }
+  
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener(
+      'change',
+      this._handleConnectivityChange
+    );
+  }
+  
+  _handleConnectivityChange = (isConnected) => {
+    this.setState({
+      isConnected,
+    });
+  };
+  
+  
+  // show customized alert
+  showAlert = (__title, __msg) => {
+    this.setState({
+      ...this.state,
+      showAlert: true,
+      _title: __title,
+      msg: __msg,
+    });
+  }
+  
+  
+  // What happens after you press register button
   onRegisterPressed() {
-    // Validations
-    if (validateEmail(this.state.email)
-        && validateName(this.state.fname, true)
-        && validateName(this.state.lname, false)
-        && validateFilled(this.state.password)
-        && validatePassword(this.state.password)
-        && validateConfirm(this.state.password, this.state.password_confirmation)) {
-          
-          this.registerUser();
+    // Validation
+    if (this.state.isConnected) {
+      if (validateEmail(this.state.email)
+          && validateName(this.state.fname, true)
+          && validateName(this.state.lname, false)
+          && validateFilled(this.state.password)
+          && validatePassword(this.state.password)
+          && validateConfirm(this.state.password, this.state.password_confirmation)) {
+            
+            this.registerUser();
+      }
+    }
+
+    else {
+      this.showAlert('ERROR', 'Connect to internet please!');
     }
   }
 
+  
+  // connect to server and etc.
   registerUser() {
     let url = 'http://69778130.ngrok.io/'
 
@@ -72,129 +137,122 @@ export default class Register extends React.Component {
         });
   }
 
+  // render my customized alert
+  renderMyAlert = (showAlert, _title, msg) => (
+    myAlert({ showAlert, _title, msg, onDismiss: () => this.setState({ ...this.state, showAlert: false }) })
+  )
 
+
+  // main render func
   render() {
-      return (
-          <KeyboardAvoidingView style = {styles.container} behavior = 'padding'>
+    return (
+      <Container style = {styles.container}>
+        <StatusBar backgroundColor = '#2C3E50'/>
+        <View style = {styles.loginPageTop}>
+            <Image
+              source = {require('../img/logo_top.png')}
+              style = {styles.loginPageLogo} />
+        </View>
+        
+        <KeyboardAwareScrollView
+          style = {{ backgroundColor: '#F0FFFF' }}
+          resetScrollToCoords = {{ x: 0, y: 0 }}
+          contentContainerStyle = {{justifyContent: 'center'}}>
+          <TextInput
+            style = {styles.input}
+            placeholder = 'Email'
+            underlineColorAndroid = 'transparent' 
+            keyboardType = "email-address" 
+            onChangeText =  {(text) => this.setState({email: text})}
+          />
+          <TextInput
+            style = {styles.input}
+            placeholder = "First Name"
+            underlineColorAndroid = 'transparent' 
+            onChangeText = {(text) => this.setState({fname: text})}
+          />
+          <TextInput
+            style = {styles.input}
+            placeholder = "Last Name"
+            underlineColorAndroid = 'transparent' 
+            onChangeText = {(text) => this.setState({lname: text})}
+          />
+          <TextInput
+            style = {styles.input}
+            placeholder = "Password"
+            secureTextEntry = {true}
+            underlineColorAndroid = 'transparent' 
+            onChangeText = {(text) => this.setState({password: text})}
+          />
+          <TextInput
+            style = {styles.input}
+            placeholder = "Password Confirmation"
+            underlineColorAndroid = 'transparent' 
+            secureTextEntry = {true}
+            onChangeText = {(text) => this.setState({password_confirmation: text})}
+          />
+        </KeyboardAwareScrollView>
 
-            <View
-              style = {styles.loginPageTop}>
-                <Image
-                  source = {require('../img/logo_top.png')}
-                  style = {styles.loginPageLogo}
-                />
-            </View>
+        <View style = {{flex: 3.5, justifyContent: 'center'}}>
+        </View>
 
-            <View style = {styles.loginPageMiddle} >
-              <TextInput
-                style = {styles.input}
-                placeholder = 'Email'
-                underlineColorAndroid = 'transparent' 
-                keyboardType = "email-address" 
-                onChangeText =  {(text) => this.setState({email: text})}
-              />
-              <TextInput
-                style = {styles.input}
-                placeholder = "First Name"
-                underlineColorAndroid = 'transparent' 
-                onChangeText = {(text) => this.setState({fname: text})}
-              />
-              <TextInput
-                style = {styles.input}
-                placeholder = "Last Name"
-                underlineColorAndroid = 'transparent' 
-                onChangeText = {(text) => this.setState({lname: text})}
-              />
-              <TextInput
-                style = {styles.input}
-                placeholder = "Password"
-                secureTextEntry = {true}
-                underlineColorAndroid = 'transparent' 
-                onChangeText = {(text) => this.setState({password: text})}
-              />
-              <TextInput
-                style = {styles.input}
-                placeholder = "Password Confirmation"
-                underlineColorAndroid = 'transparent' 
-                secureTextEntry = {true}
-                onChangeText = {(text) => this.setState({password_confirmation: text})}
-              />
-            </View>
-            
-            <KeyboardAvoidingView style = {styles.loginPageBottom} behavior = 'position'>
-              <TouchableHighlight
-                onPress = {this.onRegisterPressed.bind(this)}
-                style = {styles.button}
-                underlayColor = '#1E90FF'>
-                <Text style={styles.buttonText}>
-                  Register!
-                </Text>
-              </TouchableHighlight>
-            </KeyboardAvoidingView>
-
-          </KeyboardAvoidingView>
-      )
+        <Footer>
+          <FooterTab>
+            <Button full style = {{backgroundColor: '#2C3E50'}}
+              onPress = {() => this.props.navigation.navigate('_Login')}>
+              <Text style = {{color: '#87CEEB'}}>
+                Login
+              </Text>
+            </Button>
+            <Button full style = {{backgroundColor: '#2C3E60'}}
+              onPress = {this.onRegisterPressed.bind(this)}>
+              <Text style = {{color: '#87CEEB'}}>
+                Register
+              </Text>
+            </Button>
+          </FooterTab>
+        </Footer>
+      </Container>
+    )
   }
 }
 
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      backgroundColor: '#F0FFFF',
-    },
+// my lovely styles :D
+const styles = EStyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#F0FFFF',
+  },
 
-    loginPageTop: {
-      flex: 1.5,
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
+  loginPageTop: {
+    flex: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 20,
+  },
 
-    loginPageLogo: {
-      width: 150,
-      height: 60,
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    
-    loginPageMiddle: {
-      flex: 5,
-      justifyContent: 'center',
-    },
+  loginPageLogo: {
+    width: 150,
+    height: 60,
+    margin: 15,
+    marginVertical: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 
-    loginPageBottom: {
-      flex: 3.5,
-      justifyContent: 'center'
-    },
-
-    input: {
-      alignSelf: 'stretch',
-      height: 50,
-      margin: 10,
-      marginHorizontal: 15,
-      padding: 3,
-      textAlign: 'center',
-      fontSize: 18,
-      borderWidth: 1,
-      borderRadius: 25,
-      borderColor: '#00BFFF',
-    },
-
-    button: {
-      height: 50,
-      marginHorizontal: 13,
-      borderRadius: 25,
-      alignSelf: 'stretch',
-      justifyContent: 'center',
-      backgroundColor: '#00BFFF',
-    },
-
-    buttonText: {
-      fontSize: 22,
-      color: '#FFF',
-      alignSelf: 'center'
-    },
-
+  input: {
+    alignSelf: 'stretch',
+    height: 50,
+    margin: 10,
+    marginHorizontal: 15,
+    padding: 3,
+    textAlign: 'center',
+    fontSize: 18,
+    borderWidth: 1,
+    borderRadius: 25,
+    borderColor: '#00BFFF',
+  },
 });
