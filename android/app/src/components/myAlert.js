@@ -4,7 +4,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 
 
 
-export default function myAlert({ showAlert, _title, _msg, onDismiss }) {
+export default function myAlert({ showAlert, _title, msg, onDismiss }) {
   return <AwesomeAlert
     show = {showAlert}
     showProgress = {false}
@@ -13,27 +13,18 @@ export default function myAlert({ showAlert, _title, _msg, onDismiss }) {
     closeOnHardwareBackPress = {false}
 
     title = {_title}
-    message = {_msg}
+    message = {msg}
     
     showConfirmButton = {true}
-    confirmButtonColor = "#DD6B55"
+    confirmButtonColor = "#1E90FFB0"
     onConfirmPressed = {onDismiss}
     confirmText = "Okay!"
     
     showCancelButton = {true}
+    cancelButtonColor = "#DD6B55"
     onCancelPressed = {onDismiss}
     cancelText = "Cancel"
     
     onDismiss = {onDismiss}
   />
 }
-
-
-
-const styles = EStyleSheet.create({
-  errorText: {
-    fontSize: 14,
-    color: '#1DBC5C',
-    alignSelf: 'center',
-  }
-});
