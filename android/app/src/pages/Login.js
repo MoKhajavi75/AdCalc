@@ -1,20 +1,33 @@
 import {
-  Button,
-  Text,
   View,
   Image,
   TextInput,
   TouchableHighlight,
   KeyboardAvoidingView,
   NetInfo,
+  StatusBar,
 } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Left,
+  Right,
+  Body,
+  Icon,
+  Text,
+} from 'native-base';
+import Swiper from 'react-native-swiper';
 
 import Controllers from '../controller/controller.js';
 import myAlert from '../components/myAlert.js';
-
 
 
 export default class Login extends React.Component {
@@ -34,6 +47,7 @@ export default class Login extends React.Component {
   // navigation Options
   static navigationOptions = {
     header: null,
+    tabBarVisible: false,
   };
 
 
@@ -120,20 +134,18 @@ export default class Login extends React.Component {
   )
 
 
+
   // main render func
   render() {
     const { showAlert, _title, msg } = this.state;
     
     return (
-      <View style = {styles.container}>
-
-        <View
-          style = {styles.loginPageTop}>
+      <Container style = {styles.container}>
+        <StatusBar backgroundColor = '#2C3E50'/>
+        <View style = {styles.loginPageTop}>
           <Image
             source = {require('../img/logo_top.png')}
-            style = {styles.loginPageLogo}
-          />
-
+            style = {styles.loginPageLogo} />
         </View>
         
         <KeyboardAvoidingView style = {styles.loginPageMiddle}>
@@ -153,30 +165,27 @@ export default class Login extends React.Component {
           />
         </KeyboardAvoidingView>
 
-        <View style = {styles.loginPageBottom}>
-          <TouchableHighlight
-            onLongPress = {() => this.props.navigation.navigate('_HomeScreen')}
-            onPress = {this.onLoginPressed.bind(this)}
-            style = {styles.button}
-            underlayColor = '#1E90FF'>
-              <Text style = {styles.buttonText}>
+        <Footer>
+          <FooterTab>
+            <Button full style = {{backgroundColor: '#2C3E60'}}
+              onPress = {this.onLoginPressed.bind(this)}
+              onLongPress = {() => this.props.navigation.navigate('_HomeScreen')}>
+              <Text style = {{color: '#87CEEB'}}>
                 Login
               </Text>
-          </TouchableHighlight>
+            </Button>
 
-          <TouchableHighlight
-            onPress = {() => this.props.navigation.navigate('_Register')}
-            style = {styles.button}
-            underlayColor = '#1E90FF'>
-              <Text style = {styles.buttonText}>
+            <Button full style = {{backgroundColor: '#2C3E50'}}
+              onPress = {() => this.props.navigation.navigate('_Register')}>
+              <Text style = {{color: '#87CEEB'}}>
                 Register
               </Text>
-          </TouchableHighlight>
-        </View>
+            </Button>
+          </FooterTab>
+        </Footer>
 
         {this.renderMyAlert(showAlert, _title, msg)}
-
-      </View>
+      </Container>
     )
   }
 }
@@ -200,6 +209,8 @@ const styles = EStyleSheet.create({
   loginPageLogo: {
     width: 150,
     height: 60,
+    margin: 15,
+    marginVertical: 5,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -208,12 +219,7 @@ const styles = EStyleSheet.create({
     flex: 5,
     justifyContent: 'center',
   },
-
-  loginPageBottom: {
-    flex: 3.5,
-    justifyContent: 'center'
-  },
-
+  
   input: {
     alignSelf: 'stretch',
     height: 50,
@@ -228,24 +234,9 @@ const styles = EStyleSheet.create({
   },
 
   button: {
-    height: 50,
-    margin: 5,
-    marginHorizontal: 13,
-    borderRadius: 25,
+    backgroundColor: '#708090',
+    marginHorizontal: 15,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    backgroundColor: '#00BFFF',
   },
-
-  buttonText: {
-    fontSize: 22,
-    color: '#FFFFFF',
-    alignSelf: 'center'
-  },
-
-  errorText: {
-    fontSize: 14,
-    color: '#1DBC5C',
-    alignSelf: 'center',
-  }
 });
