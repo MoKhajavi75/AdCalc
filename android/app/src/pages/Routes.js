@@ -7,10 +7,9 @@ import Login from './Login.js';
 import Intro from './Intro.js';
 
 
-const RootStack = StackNavigator(
+const _Temp = StackNavigator(
   {
     _Intro: { screen: Intro },
-    _HomeScreen: { screen: HomeScreen },
   },
   
   {
@@ -19,7 +18,7 @@ const RootStack = StackNavigator(
 );
 
 
-const TempStack = TabNavigator(
+const regStack = TabNavigator(
   {
     _Login: { screen: Login },
     _Register: { screen: Register },
@@ -34,10 +33,22 @@ const TempStack = TabNavigator(
 );
 
 
+const RootStack = StackNavigator(
+  {
+    _HomeScreen: { screen: HomeScreen },
+  },
+  
+  {
+    initialRouteName: '_HomeScreen',
+  }
+);
+
+
 const MainStack = StackNavigator(
   {
-    _first: { screen: RootStack },
-    _second: { screen: TempStack },
+    _first: { screen: _Temp },
+    _second: { screen: regStack },
+    _third : { screen: RootStack }
   },
   
   {
