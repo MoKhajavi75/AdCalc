@@ -29,6 +29,7 @@ const TempStack = TabNavigator(
     initialRouteName: '_Login',
     animationEnabled: true,
     swipeEnabled: true,
+    lazy: false,
   }
 );
 
