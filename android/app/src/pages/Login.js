@@ -23,6 +23,10 @@ import {
   Body,
   Icon,
   Text,
+  Form,
+  Label,
+  Input,
+  Item,
 } from 'native-base';
 import Swiper from 'react-native-swiper';
 
@@ -147,22 +151,23 @@ export default class Login extends React.Component {
             style = {styles.loginPageLogo} />
         </View>
         
-        <KeyboardAvoidingView style = {{flex: 5, justifyContent: 'center'}}>
-          <TextInput
-            style = {styles.input}
-            placeholder = 'Email'
-            underlineColorAndroid = 'transparent'
-            keyboardType = "email-address"
-            onChangeText = {(text) => this.setState({ email: text })}
-          />
-          <TextInput
-            style = {styles.input}
-            placeholder = "Password"
-            secureTextEntry = {true}
-            underlineColorAndroid = 'transparent'
-            onChangeText = {(text) => this.setState({ password: text })}
-          />
-        </KeyboardAvoidingView>
+        <Content>
+          <Form>
+            <Item floatingLabel
+              success = {validateEmail(this.state.email) ? true : false}>
+              <Label>Email</Label>
+              <Input onChangeText = {(text) => this.setState({ email: text })} />
+              
+            </Item>
+            <Item floatingLabel>
+              <Label>Password</Label>
+              <Input />
+            </Item>
+          </Form>
+        </Content>
+
+        
+
 
         <Footer>
           <FooterTab>
@@ -188,6 +193,28 @@ export default class Login extends React.Component {
     )
   }
 }
+
+/*
+        <KeyboardAvoidingView style = {{flex: 5, justifyContent: 'center'}}>
+          <TextInput
+            style = {styles.input}
+            placeholder = 'Email'
+            underlineColorAndroid = 'transparent'
+            keyboardType = "email-address"
+            onChangeText = {(text) => this.setState({ email: text })}
+          />
+          <TextInput
+            style = {styles.input}
+            placeholder = "Password"
+            secureTextEntry = {true}
+            underlineColorAndroid = 'transparent'
+            onChangeText = {(text) => this.setState({ password: text })}
+          />
+        </KeyboardAvoidingView>
+        */
+
+
+
 
 
 // reset stack for navigator
