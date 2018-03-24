@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, NavigationActions } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {
   Container,
@@ -122,7 +122,7 @@ export default class Login extends React.Component {
       .then((responseJson) => {
         this.showAlert('', responseJson.message);
         if (responseJson.error == false) {
-          this.props.navigation.navigate('_HomeScreen');
+          this.props.navigation.dispatch(resetAction);
         }
       });
   }
@@ -168,7 +168,7 @@ export default class Login extends React.Component {
           <FooterTab>
             <Button full style = {{backgroundColor: '#2C3E60'}}
               onPress = {this.onLoginPressed.bind(this)}
-              onLongPress = {() => this.props.navigation.navigate('_HomeScreen')}>
+              onLongPress = {() => this.props.navigation.dispatch(resetAction)}>
               <Text style = {{color: '#87CEEB'}}>
                 Login
               </Text>
@@ -188,6 +188,14 @@ export default class Login extends React.Component {
     )
   }
 }
+
+
+// reset stack for navigator
+const resetAction = NavigationActions.reset({
+  index: 0,
+  actions: [NavigationActions.navigate({ routeName: '_third' })],
+  key: null,
+});
 
 
 
