@@ -26,7 +26,7 @@ import {
 } from 'native-base';
 
 
-export default class HomeScreen extends Component {
+export default class HomeScreen extends React.Component {
   // navigation Options
   static navigationOptions = {
     header: null,
@@ -35,24 +35,31 @@ export default class HomeScreen extends Component {
 
     // main render func
     render() {
+      
       return (
-        <Header
-        style = {{ backgroundColor: '#F8F8FF'}}
-        androidStatusBarColor="#2C3E50">
+        <Container>
+          <Header
+            style = {{ backgroundColor: '#F8F8FF'}}
+            androidStatusBarColor="#2C3E50">
 
-        <Left style={{ flex: 1 }}>
-        </Left>
+            <Left style={{ flex: 1 }}>
+            </Left>
 
-        <Body style={{ flex: 1,  justifyContent: 'center', alignItems: 'center' }}>
-          <Image
-            source = {require('../img/logo_top.png')}
-            style = {styles.loginPageLogo}
-          />
-        </Body>
+            <Body style={{ flex: 1,  justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                source = {require('../img/logo_top.png')}
+                style = {styles.loginPageLogo}
+              />
+            </Body>
 
-        <Right style={{ flex: 1 }}>
-        </Right>
-      </Header>
+            <Right style={{ flex: 1 }}>
+            </Right>
+          </Header>
+
+          <Content>
+
+          </Content>
+        </Container>
       );
     }
   }
