@@ -47,7 +47,7 @@ export default class Register extends React.Component {
   // navigation Options
   static navigationOptions = {
     header: null,
-    tabBarVisible: false
+    tabBarVisible: true
   };
 
   // Check internet connectivity
@@ -195,7 +195,12 @@ export default class Register extends React.Component {
         </KeyboardAwareScrollView>
 
         <View style={{ flex: 3.5, justifyContent: "center" }} />
+      </Container>
+    );
+  }
+}
 
+/*
         <Footer>
           <FooterTab>
             <Button
@@ -214,10 +219,7 @@ export default class Register extends React.Component {
             </Button>
           </FooterTab>
         </Footer>
-      </Container>
-    );
-  }
-}
+*/
 
 // my lovely styles :D
 const styles = EStyleSheet.create({

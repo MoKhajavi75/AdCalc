@@ -26,7 +26,8 @@ import {
   Form,
   Label,
   Input,
-  Item
+  Item,
+  Row
 } from "native-base";
 import Swiper from "react-native-swiper";
 
@@ -49,7 +50,7 @@ export default class Login extends React.Component {
   // navigation Options
   static navigationOptions = {
     header: null,
-    tabBarVisible: false
+    tabBarVisible: true
   };
 
   // Check internet connectivity
@@ -71,9 +72,7 @@ export default class Login extends React.Component {
   }
 
   _handleConnectivityChange = isConnected => {
-    this.setState({
-      isConnected
-    });
+    this.setState({ isConnected });
   };
 
   // show customized alert
@@ -132,7 +131,11 @@ export default class Login extends React.Component {
       showAlert,
       _title,
       msg,
-      onDismiss: () => this.setState({ ...this.state, showAlert: false })
+      onDismiss: () =>
+        this.setState({
+          ...this.state,
+          showAlert: false
+        })
     });
 
   // main render func
@@ -156,60 +159,35 @@ export default class Login extends React.Component {
               success={validateEmail(this.state.email) ? true : false}
             >
               <Label>Email</Label>
-              <Input onChangeText={text => this.setState({ email: text })} />
+              <Input
+                onChangeText={text => this.setState({ email: text })}
+                keyboardType="email-address"
+              />
             </Item>
             <Item floatingLabel>
               <Label>Password</Label>
-              <Input />
+              <Input secureTextEntry={true} />
             </Item>
           </Form>
+
+          <View>
+            <Text>{"\n\n\n\n\n\n\n"}</Text>
+          </View>
+          <Button
+            block
+            style={styles.button}
+            onPress={this.onLoginPressed.bind(this)}
+            onLongPress={() => this.props.navigation.dispatch(resetAction)}
+          >
+            <Text>Login</Text>
+          </Button>
         </Content>
-
-        <Footer>
-          <FooterTab>
-            <Button
-              full
-              style={{ backgroundColor: "#2C3E60" }}
-              onPress={this.onLoginPressed.bind(this)}
-              onLongPress={() => this.props.navigation.dispatch(resetAction)}
-            >
-              <Text style={{ color: "#87CEEB" }}>Login</Text>
-            </Button>
-
-            <Button
-              full
-              style={{ backgroundColor: "#2C3E50" }}
-              onPress={() => this.props.navigation.navigate("_Register")}
-            >
-              <Text style={{ color: "#87CEEB" }}>Register</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
 
         {this.renderMyAlert(showAlert, _title, msg)}
       </Container>
     );
   }
 }
-
-/*
-        <KeyboardAvoidingView style = {{flex: 5, justifyContent: 'center'}}>
-          <TextInput
-            style = {styles.input}
-            placeholder = 'Email'
-            underlineColorAndroid = 'transparent'
-            keyboardType = "email-address"
-            onChangeText = {(text) => this.setState({ email: text })}
-          />
-          <TextInput
-            style = {styles.input}
-            placeholder = "Password"
-            secureTextEntry = {true}
-            underlineColorAndroid = 'transparent'
-            onChangeText = {(text) => this.setState({ password: text })}
-          />
-        </KeyboardAvoidingView>
-        */
 
 // reset stack for navigator
 const resetAction = NavigationActions.reset({
@@ -227,7 +205,7 @@ const styles = EStyleSheet.create({
   },
 
   loginPageTop: {
-    flex: 1.5,
+    flex: 0.5,
     alignItems: "center",
     justifyContent: "center"
   },
