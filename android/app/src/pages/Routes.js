@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StackNavigator, TabNavigator } from "react-navigation";
+import { StackNavigator, TabNavigator, tabBarOptions } from "react-navigation";
 
 import HomeScreen from "./HomeScreen.js";
 import Register from "./Register.js";
@@ -18,12 +18,24 @@ const _Temp = StackNavigator(
 
 const regStack = TabNavigator(
   {
-    _Login: { screen: Login },
-    _Register: { screen: Register }
+    Login: { screen: Login },
+    Register: { screen: Register }
   },
 
   {
-    initialRouteName: "_Login",
+    initialRouteName: "Login",
+    tabBarPosition: "bottom",
+    tabBarOptions: {
+      activeTintColor: "#F0FFFF",
+      inactiveTintColor: "#87CEEB",
+      indicatorStyle: {
+        backgroundColor: "#F0FFFF",
+        height: 1
+      },
+      style: {
+        backgroundColor: "#2C3E50"
+      }
+    },
     animationEnabled: true,
     swipeEnabled: true,
     lazy: false
@@ -48,7 +60,7 @@ const MainStack = StackNavigator(
   },
 
   {
-    initialRouteName: "_first"
+    initialRouteName: "_second"
   }
 );
 
